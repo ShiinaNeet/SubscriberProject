@@ -15,10 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
-
+});*/
+Route::get('/', [PageController::class, 'login']);
 
 Route::get('/dashboard', [PageController::class, 'dashboard']);
 Route::get('/account', [PageController::class, 'account']);
+
+Route::get('/login', [PageController::class, 'login']);
+Route::get('/register', [PageController::class, 'register']);

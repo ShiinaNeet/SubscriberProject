@@ -20,5 +20,17 @@ class PageController extends Controller
         return view('wheels.account', $data);
        
     }
+    public function login()
+    {
+        $data['css'] = ['global'];
+        return view('wheels.login', $data);
+       
+    }
+    public function register()
+    {
+        $data['css'] = ['global'];
+        return view('wheels.register', $data);
+       
+    }
 
 }

@@ -6,6 +6,8 @@ import { createVuestic } from 'vuestic-ui';
 
 import dashboardPage from './pages/dashboard.vue';
 import accountPage from './pages/account.vue';
+import registerpage from './pages/register.vue';
+import login from './pages/login.vue';
 
 const app = createApp({
     methods: {
@@ -25,6 +27,8 @@ const app = createApp({
 
 app.component('dashboard', dashboardPage);
 app.component('account', accountPage);
+app.component('login', login);
+app.component('register', registerpage);
 //import App from './App.vue'
 
 app.use(createVuestic()).mount('#app');

@@ -1,32 +1,61 @@
 <template>
-    <div class="h-screen">
-        <navigation />
-        <div class="flex items-start min-h-[calc(100vh-62px)]">
-            <div class="flex items-center w-full py-8 min-h-[calc(100vh-62px)]" style="position: sticky; top:62px;">
-                <div class="shrink m-auto">
-                    <h5 class="text-base">
-                        Account Details mine
-                    </h5>
-                    <va-button
-                    preset="primary"
-                    class="mr-6 mb-2"
-                    icon="logout"
-                    @click="$root.redirectToPage('/logout')"
-                    >
-                        Logout
-                    </va-button>
-                </div>
-            </div>
-        </div>
+    <div class="">
+        <va-form
+        class="w-[300px]"
+        tag="form"
+        @submit.prevent="handleSubmit"
+        >
+        <va-input
+            v-model="username"
+            label="Username"
+        />
+    
+        <va-input
+            v-model="password"
+            class="mt-3"
+            type="password"
+            label="Password"
+        />
+    
+        <va-select
+            v-model="value"
+            class="mt-3"
+            label="Role"
+            :options="options"
+            clearable
+        />
+    
+        <va-button
+            type="submit"
+            class="mt-3"
+        >
+            Login
+        </va-button>
+        </va-form>
     </div>
-</template>
-
-<script>
-import navmenu from '@/components/narbar.vue';
-
-export default {
+  </template>
+  
+  <script>
+  import navmenu from '@/components/narbar.vue';
+  export default {
     components: {
         navigation: navmenu
     }
-}
-</script>
+    ,
+    data() {
+      return {
+        username: "",
+        password: "",
+        value: "",
+        options: ["admin", "user"],
+      };
+    },
+    methods: {
+      handleSubmit() {
+        alert("-- form submit --");
+      },
+    },
+  };
+  </script>
+  
+

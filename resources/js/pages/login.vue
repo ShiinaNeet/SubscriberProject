@@ -72,6 +72,7 @@
                         <span class="px-2">OR</span>
                     </va-divider>
                 </div>
+                
                 <div class="mt-6 ml-4 mr-4">
                     <va-button
                         preset="secondary"
@@ -100,7 +101,8 @@ export default {
             isLoading: false,
             email: null,
             password: null,
-            delay: 500
+            delay: 500,
+            account: {}
         };
     },
     methods: {
@@ -114,7 +116,8 @@ export default {
                 url: '/login',
                 data: {
                     email: this.email,
-                    password: this.password
+                    password: this.password,
+                    user_type: this.account.user_type
                 }
             }).then(response => {
                 this.isLoading = false;

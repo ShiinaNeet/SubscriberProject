@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\PageController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +28,9 @@ Route::get('/login', [PageController::class, 'login']);
 Route::post('/login', [PageController::class, 'login']);
 
 Route::get('/register', [PageController::class, 'register']);
+
+
+Route::prefix('register')->group(function () {
+    Route::post('delete', [PageController::class, 'delete_account']);
+    Route::post('save', [PageController::class, 'save_account']);
+});

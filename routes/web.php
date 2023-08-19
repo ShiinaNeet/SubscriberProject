@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,8 @@ Route::get('/login', [PageController::class, 'login']);
 Route::get('/logout', [AccountController::class, 'logout']);
 Route::get('/register', [PageController::class, 'register']);
 Route::get('/news', [PageController::class, 'news']);
+Route::get('/getnews', [NewsController::class, 'get_news']);
+
 Route::post('/login', [AccountController::class, 'login']);
 Route::prefix('register')->group(function () {
     Route::post('delete', [PageController::class, 'delete_account']);
@@ -33,6 +36,7 @@ Route::prefix('register')->group(function () {
 });
 
 Route::prefix('news')->group(function () {
-    Route::post('delete', [NewsController::class, 'delete_account']);
+    Route::post('delete', [NewsController::class, 'delete_news']);
     Route::post('save', [NewsController::class, 'save_news']);
+ 
 });

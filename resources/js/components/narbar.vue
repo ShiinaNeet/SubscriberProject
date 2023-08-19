@@ -24,10 +24,13 @@
                 <div class="px-3 py-2 rounded hover:bg-blue-600">
                     <va-icon
                     />
-                    <span class="align-middle select-none">Home</span>
+                    <span class="align-middle select-none">dashboard</span>
                 </div>
             </va-navbar-item>
-            <va-navbar-item class="self-center">
+            <va-navbar-item class="self-center"
+            @click="path != '/news' ? $root.redirectToPage('/news') : ''"
+            :class="path == '/news' ? 'rounded bg-blue-600 active' : ''"
+            >
                 <div class="px-3 py-2 rounded hover:bg-blue-600">
                     <va-icon
                     />

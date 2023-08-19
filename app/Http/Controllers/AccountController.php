@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use App\Models\User;
-class PageController extends Controller
+use Illuminate\Support\Facades\Session;
+
+class AccountController extends Controller
 {
   
     public function login(Request $request)
@@ -57,6 +59,12 @@ class PageController extends Controller
         $query = User::find($request->id);
         if ($query->delete()) $rs = SharedFunctions::success_msg("Account deleted successfully!");
         return response()->json($rs);
+    }
+    public function logout()
+    {
+        Auth::logout();
+        Session:flush();
+        return redirect('/login');
     }
 
 }

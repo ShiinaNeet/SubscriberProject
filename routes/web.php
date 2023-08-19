@@ -2,7 +2,7 @@
 
 
 use App\Http\Controllers\PageController;
-
+use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,18 +19,20 @@ use Illuminate\Support\Facades\Route;
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-Route::get('/', [PageController::class, 'dashboard']);
-
+Route::get('/', [PageController::class, 'login']);
 Route::get('/dashboard', [PageController::class, 'dashboard']);
 Route::get('/account', [PageController::class, 'account']);
-
 Route::get('/login', [PageController::class, 'login']);
-Route::post('/login', [PageController::class, 'login']);
-
+Route::get('/logout', [AccountController::class, 'logout']);
 Route::get('/register', [PageController::class, 'register']);
-
-
+Route::get('/news', [PageController::class, 'news']);
+Route::post('/login', [AccountController::class, 'login']);
 Route::prefix('register')->group(function () {
     Route::post('delete', [PageController::class, 'delete_account']);
     Route::post('save', [PageController::class, 'save_account']);
+});
+
+Route::prefix('news')->group(function () {
+    Route::post('delete', [NewsController::class, 'delete_account']);
+    Route::post('save', [NewsController::class, 'save_news']);
 });
